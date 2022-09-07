@@ -1,0 +1,212 @@
+:root{
+    --roadmap-backgroung:linear-gradient(to left,#0E394E,#0E1E28);
+    --main-shadow-color:#148278;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font-family);
+}
+header{
+    position: static;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--roadmap-backgroung);
+    position: relative;
+}
+.header::after{
+    content: '';
+    left: 0rem;
+    top: 2rem;
+    width: 100%;
+    height: 10rem;
+    background: url(../images/stars.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+.header>.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--nav-color);
+    font-size: 2rem;
+}
+.header>.container img{
+    width: 18.75rem;
+}
+.header>.container ul{
+    flex-direction: column;
+    list-style:disc;
+}
+.header>.container h1{
+    padding: 1.25rem;
+    font-size: 6rem;
+    margin-block: 2rem;
+}
+.header>.container ul li{
+    color: var(--main-color);
+    padding: 1.25rem;
+    margin-block: 2rem;
+}
+.header>.container ul li>span span.active{
+    color: var(--main-color);
+}
+.header>.container ul li span{
+    color: var(--nav-color);
+}
+.header .container .avatars{
+    font-size: 1rem;
+}
+.header .container .avatars{
+    display: flex;
+    gap: 2rem;
+}
+.header .container .avatars .avatar{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+.header .container .avatars img{
+    width: 5rem;
+}
+@media (max-width:62rem){
+    .header{
+        height: auto;
+    }
+    .header>.container img{
+        width: 15rem;
+    }
+    .header>.container{
+        font-size: 1.5rem;
+    }
+    .header>.container h1{
+        padding: 1.25rem;
+        font-size: 3rem;
+    }
+}
+@media (max-width:48rem){
+    .header>.container ul{
+        list-style: none;
+    }
+    .header>.container img{
+        width: 10rem;
+    }
+    .header>.container ul li{
+        padding: 0;
+    }
+    .header>.container{
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+    }
+    .sletter{
+        display: none;
+    }
+    .header .container .avatars .avatar h2{
+        font-size: 1.2rem;
+    }
+    .header .container .avatars .avatar{
+        font-size: 0.9rem;
+    }
+}
+/*roadmap*/
+.roadmap-schedule,
+.roadmap-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ruler{
+    position: relative;
+    width: 100%;
+    height: 12.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.road-map-schedule,
+.activity-schedule{
+    position: absolute;
+    width: 18.75rem;
+    background-color: #0E394E;
+    padding: 2rem;
+    top: -7%;
+    font-size: 1.4rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.activity-schedule{
+    background-color: white;
+    box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
+    right: 15%;
+}
+.road-map-schedule{
+    background-color: var(--main-color);
+    left: 15%;
+    box-shadow: 0 0.2rem 0.5rem 0.2rem var(--main-shadow-color);
+}
+@media (max-width:65rem) {
+    .ruler{
+        height: 25rem;
+    }
+    .road-map-schedule,
+    .activity-schedule{
+    position:static;
+    margin-block: 0.5rem;
+    }
+}
+@media (max-width:48rem) {
+    .avatars{
+        flex-wrap: wrap;
+    }
+}
+.roadmap-table{
+    padding-block: 3rem;
+}
+.roadmap-table h2{
+    font-size: 3rem;
+    padding-block: 2rem;
+}
+table, th, td {
+    border: 1px solid #E4E4E4;
+    border-collapse: collapse;
+    padding: 1rem ;
+    font-size: 1.5rem;
+}
+
+td img{
+    cursor: pointer;
+}
+@media (max-width:48rem) {
+    .road-map-schedule,
+.activity-schedule{
+    width: 15rem;
+    font-size: 1rem;
+}
+    table, th, td {
+        font-size: 1rem;
+        padding: 0.5rem ;
+    }
+    td:nth-child(1),
+    th:nth-child(1),
+    td:nth-child(3),
+    th:nth-child(3){
+        display: none;
+    }
+    td img{
+        width: 1.5rem;
+    }
+    td{
+        text-align: center;
+    }
+
+}
