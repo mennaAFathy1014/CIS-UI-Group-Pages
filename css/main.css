@@ -1,6 +1,6 @@
 :root{
     --main-color:#1AE5BE;
-    --mian-hesading:#0E1D27;
+    --mian-heading:#0E1D27;
     --main-paragraph:#0B171F;
     --nav-color:white;
     --main-linear: linear-gradient(to top, #0E1F2A, #0E394F);
@@ -41,13 +41,13 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--mian-hesading);
-    position: absolute;
+    background-color: var(--mian-heading);
+    position: sticky;
     z-index: 2;
     width: 100%;
     top: 0;
     left: 0;
-    padding-block: 2rem;
+    padding-block: 1rem;
 }
 header .container{
     width: 100%;
@@ -57,16 +57,24 @@ header .container{
     justify-content: space-between;
 }
 header .container .logo img{
-    width: 12rem;
+    width: 8rem;
+}
+li a{
+    color: var(--nav-color);
 }
 header .container nav ul li a{
     color: var(--nav-color);
-    font-size: 1.5rem;
-
+    font-size: 1rem;
+}
+header .container nav{
+    flex-grow: 1;
+    display: flex;
 }
 header .container nav ul{
+    margin-inline: auto;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 header .container nav ul li a:hover,
@@ -75,7 +83,8 @@ header .container nav a.active,
     color: var(--main-color);
 }
 .sletter{
-    font-size: 1.5rem;
+    /* margin-inline: 0.5rem; */
+    font-size: 1rem;
     padding: 0.5rem;
     color: var(--main-color);
     background-image:var(--main-linear);
@@ -91,7 +100,7 @@ header .container nav a.active,
 
 }
 .sletter:hover,
-.sletter a:hover{
+.sletter:hover a{
     color:var(--main-paragraph);
     background: var(--main-color);
 }
@@ -115,20 +124,8 @@ header .container .bars span:nth-child(2){
 header .container .bars span:nth-child(3){
     width: 1rem;
 }
-.opened{
-    position: absolute;
-    left: 0;
-    top: 3rem;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-    background:var(--main-background) ;
-    border-block-end: 0.1rem solid var(--main-paragraph);
-}
-.opened li{
-    padding: .8rem;
+header .container nav ul li:hover a{
+    border-bottom: 0.1rem solid var(--main-color);
 }
 
 @media (max-width:62rem) {
@@ -138,18 +135,32 @@ header .container .bars span:nth-child(3){
     header .container{
         width: 100%;
         padding-inline: 2rem;
-        padding-block: 1.5rem;
+    }
+    header .container nav{
+        display: none;
+    }
+    header .container nav.opened{
+        display: flex;
+        padding-block: 1rem;
+        background-color: var(--mian-heading);
+        width: 100%;
+        align-items: center;
+        left: 0;
+        top: 5rem;
+        position: absolute;
+        flex-direction: column;
+    }
+    .opened li{
+        padding: .8rem;
+    }
+    header .container nav.opened ul li:hover a{
+        border-bottom: 0.1rem solid var(--main-color);
     }
     header nav ul{
-        display: none;
+        flex-direction: column;
     }
     header .container .bars{
         display: flex;
-        margin-inline-start: auto;
-        margin-inline-end: 1rem;
-    }
-    header .container .logo img{
-        width: 8rem;
     }
 }
 
@@ -161,7 +172,6 @@ header .container .bars span:nth-child(3){
     justify-content: space-between;
     flex-direction: row;
     height: 100vh;
-    padding-block-start: 6.01rem;
 }
 .header .logo,
 .header .header-pic{
@@ -174,20 +184,11 @@ header .container .bars span:nth-child(3){
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-.header .logo span{
-    position: absolute;
-}
-.header .logo span img{
-    height: 10rem;
-}
-.header .logo span:first-of-type{
-    left: 0;
-    top: 10rem;
-}
-.header .logo span:last-of-type{
-    left: 0;
-    bottom: 10rem;
+
+    background: url(../images/blue-circles.png) no-repeat,
+    url(../images/circle-left.png) no-repeat;
+    background-position: left 20%,
+    left 60%;
 }
 .header .logo h1{
     font-size: 5rem;
@@ -216,19 +217,15 @@ header .container .bars span:nth-child(3){
     content: '';
     position: absolute;
     top: 35%;
-    right: -12rem;
-    width: 8rem;
-    height: 12rem;
+    right: -14rem;
+    width: 6rem;
+    height: 8rem;
     z-index: 1;
     background-image: url(../images/Green-Circles.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transform: rotateZ(-18deg);
-    -webkit-transform: rotateZ(-18deg);
-    -moz-transform: rotateZ(-18deg);
-    -ms-transform: rotateZ(-18deg);
-    -o-transform: rotateZ(-18deg);
+    transform: rotateZ(-16deg);
 }
 .header>.header-logo{
     position: absolute;
@@ -246,7 +243,6 @@ header .container .bars span:nth-child(3){
 @media (max-width:62rem){
     .header{
         flex-direction: column;
-        /* height: 150vh; */
     }
     .header .logo{
         width: 100%;
@@ -281,6 +277,36 @@ header .container .bars span:nth-child(3){
     display: flex;
     align-items: center;
     justify-content: center;
+    background: url(../images/circle-left.png) no-repeat,
+    url(../images/circle-left.png) no-repeat,
+    url(../images/circle-left.png) no-repeat,
+    url(../images/blue-circles.png) no-repeat,
+    url(../images/Green-Circles.png) no-repeat,
+    url(../images/blue-circles.png) no-repeat,
+    url(../images/circle-right.png) no-repeat,
+    url(../images/circle-right.png) no-repeat,
+    url(../images/circle-right.png) no-repeat,
+    url(../images/blue-circles.png) no-repeat,
+    url(../images/Green-Circles.png) no-repeat,
+    url(../images/blue-circles.png) no-repeat
+    ;
+    background-position: left 0%,
+    left 40%,
+    left 80%,
+    left 20%,
+    left 60%,
+    left 95%,
+    right 0%,
+    right 40%,
+    right 80%,
+    right 20%,
+    right 60%,
+    right 95%
+}
+@media (max-width:48rem) {
+    .groups{
+        background: none;
+    }
 }
 .groups .container{
     display: flex;
@@ -292,7 +318,7 @@ header .container .bars span:nth-child(3){
 .groups .container .group{
     display: flex;
     flex-direction: column;
-    width: 25rem;
+    width: 22rem;
     height: 30rem;
     box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
@@ -309,20 +335,28 @@ header .container .bars span:nth-child(3){
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
+
+    flex-grow: 1;
+}
+.groups .container .group .content p{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 7rem;
 }
 
-/* .groups .container .group img{
-    /* width: 10rem; */
-/*}*/
 .groups .container .group P{
     padding-block: 1rem;
 }
+
 @media (max-width:62rem) {
     .groups .container{
         width: 100%;
     }
     .groups .container .group{
         width: 18.75rem;
+        height: 27rem;
     }
 }
 
@@ -352,7 +386,7 @@ footer .container:first-child ul{
 }
 footer .container:first-child ul li{
     padding-block: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 footer .container:first-child form{
     width: 25%;
@@ -363,12 +397,12 @@ footer .container:first-child form .f-text{
     padding-block: 0.5rem;
 }
 footer .container:first-child form .f-text input{
-    width: 12.5rem;
+    width: 100%;
     padding: 0.5rem;
     margin-block: 0.5rem;
     border: none;
     color: #e4e4e4;
-    background-color: var(--mian-hesading);
+    background-color: var(--mian-heading);
     border-radius: 0.3rem;
     -webkit-border-radius: 0.3rem;
     -moz-border-radius: 0.3rem;
@@ -383,6 +417,7 @@ footer .container:first-child ul:nth-child(4) img{
     width: 10rem;
 }
 .subs{
+    width: 100%;
     padding: 0.5rem;
     background-color: var(--main-color);
     border:none;
@@ -391,6 +426,9 @@ footer .container:first-child ul:nth-child(4) img{
     -moz-border-radius: 0.3rem;
     -ms-border-radius: 0.3rem;
     -o-border-radius: 0.3rem;
+}
+.subs:hover{
+    color: var(--nav-color);
 }
 @media (max-width:62rem) {
     footer .container:first-child{
@@ -424,10 +462,16 @@ ul.icons{
 }
 ul.icons li{
     display: flex;
+    cursor: pointer;
 }
+ul.icons li img{
+    filter: invert(1);
+}
+
 footer .container:nth-child(2) ul.icons img{
     display: block;
-    width: 3rem;
+    width: 2rem;
+
 }
 footer .container:nth-child(2) ul.icons li:first-of-type img{
     width: 1.5rem;
